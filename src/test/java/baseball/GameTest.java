@@ -15,11 +15,12 @@ public class GameTest {
     }
 
     @Test
-    public void 입력값에_숫자_외의_숫자가_입력될_경우() {
+    public void 유효하지_않은_입력에_대해_IllegalArgument_Exception_발생() {
         assertIllegalArgument(null);
         assertIllegalArgument("12");
         assertIllegalArgument("1234");
         assertIllegalArgument("12s");
+        assertIllegalArgument("121");
     }
 
     @Test
