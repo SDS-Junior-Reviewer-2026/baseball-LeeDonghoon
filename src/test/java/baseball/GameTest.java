@@ -1,7 +1,9 @@
 package baseball;
 
-import static org.junit.jupiter.api.Assertions.*;
+//import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,13 +26,14 @@ public class GameTest {
     }
 
     @Test
-    public void 입력값에_중복된_숫자가_입력될_경우() {
-
-    }
-
-    @Test
     public void 숫자_세개가_전부_일치_할_경우_3_strike() {
+        game.question = "123";
+        GuessResult result = game.guess("123");
 
+        assertThat(result).isNotNull();
+        assertThat(result.solved).isEqualTo(true);
+        assertThat(result.strikes).isEqualTo(3);
+        assertThat(result.balls).isEqualTo(0);
     }
 
     @Test
